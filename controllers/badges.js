@@ -1,4 +1,4 @@
-'use sctrict';
+'use strict';
 
 var _ = require('underscore');
 var model = require('../models/badges');
