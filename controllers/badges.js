@@ -18,6 +18,6 @@ exports.save = function(req, res, next) {
 /**
  * Send badges to pub/sub socket in model
  */
-exports.send = function(req, res) {
-  res.send('hello from send');
+exports.send = function(req, res, next) {
+  next();
 };
