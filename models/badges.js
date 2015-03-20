@@ -19,4 +19,12 @@ var save = function (badges, callback) {
   });
 };
 
+/**
+ * Trim down the redis list
+ */
+var trim = function () {
+  redis.ltrim('badges', 0, 9);
+};
+
 exports.save = save;
+exports.trim = trim;
