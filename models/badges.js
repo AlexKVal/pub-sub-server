@@ -26,5 +26,14 @@ var trim = function () {
   redis.ltrim('badges', 0, 9);
 };
 
+/**
+ * Get badges from redis
+ * @param {Function} callback
+ */
+ var get = function (callback) {
+  redis.lrange('badges', 0, -1, callback);
+ };
+
 exports.save = save;
 exports.trim = trim;
+exports.get  = get;

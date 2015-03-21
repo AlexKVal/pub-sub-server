@@ -33,6 +33,7 @@ exports.send = function(req, res, next) {
 exports.get = function (req, res) {
   model.get(function (err, data) {
     if (err) return res.json(503, { error: true });
+    data = data.map(JSON.parse);
     res.json(200, data);
   });
 };
