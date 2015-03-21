@@ -10,4 +10,6 @@ app.post('/', badges.save, badges.send, function (req, res) {
   res.send('\ndone\n\n');
 });
 
+app.get('/badges', badges.get);
+
 app.listen(8000);
