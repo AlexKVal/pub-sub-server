@@ -12,14 +12,14 @@ exports.save = function(req, res, next) {
   model.save(badges, function (err) {
     if(err) return res.json(503, { error: true });
     next();
-    model.trim();
+    model.trim(); // we don't keep more than 10 last badges
   });
 };
 
 /**
  * Send badges to pub/sub socket in model
  */
-exports.send = function(req, res, next) {
+exports.send = function(req, res) {
   var badges = _.clone(req.body);
   model.send(badges, function (err) {
     if(err) return res.json(503, { error: true });
