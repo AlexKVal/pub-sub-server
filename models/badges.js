@@ -33,8 +33,7 @@ var trim = function () {
  var get = function (callback) {
   redis.lrange('badges', 0, -1, function (err, data) {
     if (err) return callback(err, null);
-    data = data.map(JSON.parse);
-    callback(null, data);
+    callback(null, data.map(JSON.parse));
   });
  };
 
