@@ -31,7 +31,11 @@ var trim = function () {
  * @param {Function} callback
  */
  var get = function (callback) {
-  redis.lrange('badges', 0, -1, callback);
+  redis.lrange('badges', 0, -1, function (err, data) {
+    if (err) return callback(err, null);
+    data = data.map(JSON.parse);
+    callback(null, data);
+  });
  };
 
 exports.save = save;
